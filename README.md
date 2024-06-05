@@ -1,1 +1,5 @@
 # Fault-Classification-for-rotating-machinery-components-using-CNN
+# Abstract 
+
+#The aim of this work is to develop, implement and validate a neural predictive maintenance algorithm for rotating device bearings. This algorithm is designed to analyze the created time-frequency spectrum based on diagnostic data and, on this basis, classify the condition of the bearing. The project will test various approaches to spectrum analysis using artificial neural networks and signal processing technologies.
+The development of this algorithm aims to find the answer to the question: how can the potential of artificial intelligence and neural networks be used to diagnose and predict failures of rotating devices? How can the analysis of various types of spectra help to improve the efficiency and reliability of these devices? The development of this algorithm is aimed at answering the question: how can the potential of artificial intelligence and neural networks be used to apply and predict indicators of rotating devices? How can spectrum type analysis work for performance and these devices?
