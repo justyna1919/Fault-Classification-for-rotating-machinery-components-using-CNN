@@ -15,6 +15,9 @@ Motor bearings were seeded with faults using electro-discharge machining (EDM). 
 Vibration signals of 4 classes of bearings were measured in the experiment, namely:
 
 -normal bearing without fault (N)
+
 -bearing with single point fault at the inner raceway (IR)
+
 -bearing with single point fault at the outer raceway (OR)
+
 -bearing with single point fault at the ball (B).
