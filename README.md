@@ -21,3 +21,27 @@ Vibration signals of 4 classes of bearings were measured in the experiment, name
 -bearing with single point fault at the outer raceway (OR)
 
 -bearing with single point fault at the ball (B).
+
+# Data Pre-Processing
+
+Deep learning algorithms require a lot of data. The larger their number, the higher the efficiency. The Case Western Bearing dataset is not a huge dataset. Therefore, data from each category is collected in segments of length 784 and transformed into a 2-D matrix of size (28 by 28). The offset is 300, which causes overlapping of segments, but significantly increases the number of examples provided at the network input. The total data size is therefore (9246, 32, 32.1). The data is randomly divided into a training set of 70% and a test set of 30%. Such a transformation was performed on the raw data vector, data after the FFT transform, data after the STFT transform and data after the CWT transform.
+
+# Classification Models
+
+A convolutional neural network model was used for feature extraction and classification. The number of classes for each dataset is 14. The model used is an 8-layer deep learning network. The network architecture is based on the LeNet 5 architecture. It contains 2 feature detection or extraction blocks. Each feature extraction block consists of convolutional layers, ReLU activation unit, and max-pooling layers. Both feature extraction blocks contain convolutional filters of size 5 × 5, max-pooling layer of size 2 × 2, step size of 1, ReLU activation unit. The number of layers used in the blocks are 64 and 32, respectively. A layer was then applied to flatten the data before entering the dense layers. Two dense layers of sizes 120 and 84 were successively used. The last layer consists of 14 neurons used to label the type of damage and the SoftMax activation function. The learning rate was set to 0.001 and the Adam optimizer was used.
+![image](https://github.com/justyna1919/Fault-Classification-for-rotating-machinery-components-using-CNN/assets/118431395/58293162-afa6-4dfb-846f-f09dd14533fe)
+
+# Results
+
+![image](https://github.com/justyna1919/Fault-Classification-for-rotating-machinery-components-using-CNN/assets/118431395/28df9990-b87e-4fb6-867b-57d627a7addb)
+![image](https://github.com/justyna1919/Fault-Classification-for-rotating-machinery-components-using-CNN/assets/118431395/600803b3-6546-4571-9f7e-b2442f1d1457)
+
+The network achieves 97.8% accuracy on raw data vector, 90.09% on FFT transformed data, 92.47% on STFT transformed data, 95.53% on CWT transformed data . The confusion matrix shows that the algorithm shows the best efficiency for the raw data vector and data after CWT transformation. In the case of data after FFT and STFT transformation, the biggest mistake is made for the class of bearing with a damaged inner ring with a value of 0.36 mm (014_IR), incorrectly interpreting it as a bearing with a damaged ball with a value of 0.36 mm (014_B).
+
+![image](https://github.com/justyna1919/Fault-Classification-for-rotating-machinery-components-using-CNN/assets/118431395/c7940ed3-a4b1-4b6a-8002-c31f25784f30)
+
+# Conclusions 
+
+The network implemented on the raw data vector shows the highest accuracy - 99.44% for training data and 97.8% for test data. The network implemented on data previously subjected to STFT transformation has the lowest accuracy - 89.6% for training data and 84.7% for test data. For CWT transformed data, there is the largest difference between the training data accuracy of 97.46% and the test data accuracy of 89.1%. The smallest difference between the accuracy of training data and the accuracy of test data is demonstrated by the network implemented on data after FFT transformation, and it is 91.22% and 90.09%, respectively.
+
+![image](https://github.com/justyna1919/Fault-Classification-for-rotating-machinery-components-using-CNN/assets/118431395/36e5d673-e6c4-4833-8a01-2e323ded7ac0)
